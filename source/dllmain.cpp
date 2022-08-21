@@ -92,6 +92,50 @@ void set_load_style(int x1)
 	{
 		rorn = 'n';
 	}
+
+	//1.0.0 0x140CC9008
+	//1.0.1 0x140CC3178
+	WRITE_MEMORY(0x140CC21D8, uint8_t, rorn); //rights_list
+
+	//1.0.0 0x140CC9028
+	//1.0.1 0x140CC3108
+	WRITE_MEMORY(0x140CC2168, uint8_t, rorn); //rights_bg01
+
+	//1.0.0 0x140CC9018
+	//1.0.1 0x140CC30F8
+	WRITE_MEMORY(0x140CC21E8, uint8_t, rorn); //rights_bg02
+
+	//1.0.0 0x140CC90B8
+	//1.0.1 0x140CC3198
+	WRITE_MEMORY(0x140CC21F8, uint8_t, rorn); //rights_base_man
+
+	//1.0.0 0x140CC90C8
+	//1.0.1 0x140CC31A8
+	WRITE_MEMORY(0x140CC2208, uint8_t, rorn); //rights_base_arr
+
+	//1.0.0 0x140CC9048
+	//1.0.1 0x140CC31B8
+	WRITE_MEMORY(0x140CC2218, uint8_t, rorn); //rights_base_lyr
+
+	//1.0.0 0x140CC9058
+	//1.0.1 0x140CC3138
+	WRITE_MEMORY(0x140CC2228, uint8_t, rorn); //rights_base_mus
+
+	//1.0.0 0x140CC9098
+	//1.0.1 0x140CC31E0
+	WRITE_MEMORY(0x140CC2250, uint8_t, rorn); //rights_base_pv
+
+	//1.0.0 0x140CC90A8
+	//1.0.1 0x140CC3188
+	WRITE_MEMORY(0x140CC2260, uint8_t, rorn); //rights_base_gui
+
+	//1.0.0 0x140CC9080
+	//1.0.1 0x140CC31C8
+	WRITE_MEMORY((char*)0x140CC2238 + 0x02, uint8_t, rorn); //p_rights_name%02d_lt
+
+	//1.0.0 0x140CC915A
+	//1.0.1 0x140CC3160
+	WRITE_MEMORY((char*)0x140CC21C0 + 0x02, uint8_t, rorn); //p_rights_song_lt
 }
 
 void random_load()
@@ -140,9 +184,9 @@ extern "C" __declspec(dllexport) void Init()
 	{
 		randomLoading = 1;
 	}
-	else if (randomLoading > 1023)
+	else if (randomLoading > 1003)
 	{
-		randomLoading = 1023;
+		randomLoading = 1003;
 	}
 
 	srand(time(NULL));
